@@ -1,11 +1,11 @@
-type UserData = {
+export type UserData = {
   id: number
   firstName: string
   lastName: string
   maidenName: string
 }
 
-type UserList = {
+export type UserList = {
   users: UserData[]
   total: number
   skip: number
@@ -18,7 +18,9 @@ export const getUserDetail = async (id: string) => {
   return userData
 }
 
-export const getUserList = async (skip = 0, limit = 10) => {
+export const getUserList = async (page: number) => {
+  const limit = 10
+  const skip = limit * page
   const response = await fetch(
     `https://dummyjson.com/users/?skip=${skip}&limit=${limit}`
   )

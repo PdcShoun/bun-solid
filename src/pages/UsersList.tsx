@@ -5,7 +5,7 @@ import { getUserList } from '@/resource/user'
 
 const UsersList = () => {
   const [searchParams] = useSearchParams()
-  const page = () => Number(searchParams.page) || 0
+  const page = () => Number(searchParams.page) || 1
   const [users] = createResource(page, getUserList)
   const totalUser = () => Math.ceil((users()?.total || 0) / 10)
   return (
@@ -30,7 +30,7 @@ const UsersList = () => {
 export default UsersList
 
 const UserPageLink = (total: number) => {
-  const calPage = (index: number) => `?page=${index}`
+  const calPage = (index: number) => `?page=${index + 1}`
   return (
     <>
       <Index each={[...Array(total)]}>

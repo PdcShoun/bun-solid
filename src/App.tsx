@@ -2,7 +2,6 @@ import { lazy } from 'solid-js'
 import type { Component } from 'solid-js'
 import { Route, Router, A } from '@solidjs/router'
 import type { RouteSectionProps } from '@solidjs/router'
-import { Container, Box } from '@suid/material'
 
 import { AppContext, makeAppContext } from './Context'
 import NotFound from '@/pages/NotFound'
@@ -14,6 +13,7 @@ const About = lazy(() => import('./pages/About'))
 const Login = lazy(() => import('./pages/Login'))
 const User = lazy(() => import('./pages/User'))
 const UsersList = lazy(() => import('./pages/UsersList'))
+const RecordId = lazy(() => import('./pages/RecordId'))
 
 const App = () => {
   const context = makeAppContext()
@@ -26,6 +26,12 @@ const App = () => {
           <Route path="/users">
             <Route path="/" component={UsersList} />
             <Route path="/:userId" component={User} />
+          </Route>
+          <Route path="/record">
+            <Route path="/:recordId">
+              <Route path="/" component={RecordId} />
+              <Route path="/:recId" component={RecordId} />
+            </Route>
           </Route>
           <Route path="/about" component={About} />
           <Route path="/login" component={Login} />
@@ -41,11 +47,9 @@ export default App
 const Layout: Component<RouteSectionProps<unknown>> = (props) => {
   return (
     <>
-      <Container maxWidth="sm">
-        <Header />
-        {props.children}
-        <Footer />
-      </Container>
+      <Header />
+      {props.children}
+      <Footer />
     </>
   )
 }

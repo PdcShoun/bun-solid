@@ -31,19 +31,12 @@ export default UsersList
 
 const UserPageLink = (total: number) => {
   const calPage = (index: number) => `?page=${index + 1}`
+  const arrayLenth = total ? total - 1 : 0
   return (
     <>
-      <Index each={[...Array(total)]}>
+      <Index each={[...Array(arrayLenth)]}>
         {(_item, index) => <A href={calPage(index)}>{index + 1}</A>}
       </Index>
-    </>
-  )
-}
-
-const UserLink = () => {
-  return (
-    <>
-      <li></li>
     </>
   )
 }

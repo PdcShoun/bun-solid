@@ -1,7 +1,6 @@
-import { Box } from '@suid/material'
 
 const Footer = () => {
-  return <Box>Footer Solid JS</Box>
+  return <div>Footer Solid JS</div>
 }
 
 export default Footer

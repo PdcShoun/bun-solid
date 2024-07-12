@@ -1,11 +1,9 @@
 import { getUserDetail } from '@/resource/user'
 import { useParams, A, useNavigate } from '@solidjs/router'
 import { Show, createResource } from 'solid-js'
-import { Button } from '@suid/material'
 
 const User = () => {
   const params = useParams()
-  const navigation = useNavigate()
   const userId = () => params.userId
   const nextId = () => Number(userId()) + 1
   const prevId = () => Number(userId()) - 1
@@ -19,19 +17,9 @@ const User = () => {
         </Show>
       </div>
       <Show when={prevId() > 0}>
-        <Button
-          variant="contained"
-          onclick={() => navigation(`/users/${prevId()}`)}
-        >
-          Prev
-        </Button>
+        <A href={`/users/${prevId()}`}>Prev</A>
       </Show>
-      <Button
-        variant="contained"
-        onclick={() => navigation(`/users/${nextId()}`)}
-      >
-        Next
-      </Button>
+      <A href={`/users/${nextId()}`}>Next</A>
     </div>
   )
 }

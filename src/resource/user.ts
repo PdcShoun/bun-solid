@@ -13,7 +13,7 @@ export type UserList = {
 }
 
 export const getUserDetail = async (id: string) => {
-  const response = await fetch(`https://dummyjson.com/users/${id}`)
+  const response = await fetch(`/api/users/${id}`)
   const userData: UserData = await response.json()
   return userData
 }
@@ -21,9 +21,7 @@ export const getUserDetail = async (id: string) => {
 export const getUserList = async (page: number) => {
   const limit = 10
   const skip = limit * page
-  const response = await fetch(
-    `https://dummyjson.com/users/?skip=${skip}&limit=${limit}`
-  )
+  const response = await fetch(`/api/users?skip=${skip}&limit=${limit}`)
   const userData: UserList = await response.json()
   return userData
 }

@@ -22,7 +22,14 @@ const UsersList = () => {
           </For>
         </Show>
       </ul>
-      Page<Show when={totalUser}>{UserPageLink(totalUser())}</Show>
+      Page
+      <Show when={totalUser}>
+        <nav aria-label="Page navigation example">
+          <ul class="inline-flex -space-x-px text-sm">
+            {UserPageLink(totalUser())}
+          </ul>
+        </nav>
+      </Show>
     </>
   )
 }
@@ -35,7 +42,16 @@ const UserPageLink = (total: number) => {
   return (
     <>
       <Index each={[...Array(arrayLenth)]}>
-        {(_item, index) => <A href={calPage(index)}>{index + 1}</A>}
+        {(_item, index) => (
+          <li>
+            <A
+              class="ms-0 flex h-8 items-center justify-center rounded-lg border border-gray-300 bg-white px-3 leading-tight text-gray-500 hover:bg-gray-100 hover:text-gray-700"
+              href={calPage(index)}
+            >
+              {index + 1}
+            </A>
+          </li>
+        )}
       </Index>
     </>
   )

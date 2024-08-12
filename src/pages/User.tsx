@@ -17,9 +17,19 @@ const User = () => {
         </Show>
       </div>
       <Show when={prevId() > 0}>
-        <A href={`/users/${prevId()}`}>Prev</A>
+        <A
+          class="focus:shadow-outline rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700 focus:outline-none"
+          href={`/users/${prevId()}`}
+        >
+          Prev
+        </A>
       </Show>
-      <A href={`/users/${nextId()}`}>Next</A>
+      <A
+        class="focus:shadow-outline rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700 focus:outline-none"
+        href={`/users/${nextId()}`}
+      >
+        Next
+      </A>
     </div>
   )
 }

@@ -1,6 +1,6 @@
 import { Show, createEffect } from 'solid-js'
 import { useNavigate } from '@solidjs/router'
-import { useAppContext } from '../Context'
+import { useAppContext } from '@/Context'
 
 const Home = () => {
   const [logged, login, logout] = useAppContext()
@@ -13,13 +13,13 @@ const Home = () => {
     navigate('/login', { replace: true })
   }
 
-  // createEffect(() => {
-  //   console.log('Home', { logged: logged(), token })
-  //   if (!token) {
-  //     console.log('Rediarect')
-  //     navigate('/login', { replace: true })
-  //   }
-  // })
+  createEffect(() => {
+    console.log('Home', { logged: logged(), token })
+    if (!token) {
+      console.log('Rediarect')
+      navigate('/login', { replace: true })
+    }
+  })
 
   return (
     <>

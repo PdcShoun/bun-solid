@@ -16,7 +16,7 @@ export const FormLogin = () => {
 
   return (
     <>
-      <div class="w-full max-w-xs">
+      <div class="w-full max-w-xs m-4">
         <Form
           onSubmit={handleSubmit}
           class="mb-4 rounded bg-white px-8 pb-8 pt-6 shadow-md"

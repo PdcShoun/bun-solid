@@ -1,6 +1,6 @@
 import { lazy } from 'solid-js'
 import type { Component } from 'solid-js'
-import { Route, Router, A } from '@solidjs/router'
+import { Route, Router } from '@solidjs/router'
 import type { RouteSectionProps } from '@solidjs/router'
 
 import { AppContext, makeAppContext } from './Context'
@@ -8,12 +8,12 @@ import NotFound from '@/pages/NotFound'
 import Header from '@/layout/Header'
 import Footer from '@/layout/Footer'
 
-const Home = lazy(() => import('./pages/Home'))
-const About = lazy(() => import('./pages/About'))
-const Login = lazy(() => import('./pages/Login'))
-const User = lazy(() => import('./pages/User'))
-const UsersList = lazy(() => import('./pages/UsersList'))
-const RecordId = lazy(() => import('./pages/RecordId'))
+const Home = lazy(() => import('@/pages/Home'))
+const About = lazy(() => import('@/pages/About'))
+const Login = lazy(() => import('@/pages/Login'))
+const User = lazy(() => import('@/pages/User'))
+const UsersList = lazy(() => import('@/pages/UsersList'))
+const RecordId = lazy(() => import('@/pages/RecordId'))
 
 const App = () => {
   const context = makeAppContext()

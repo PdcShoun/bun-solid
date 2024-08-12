@@ -1,13 +1,8 @@
-import {
-  SubmitHandler,
-  required,
-  type FieldStore,
-  type FieldElementProps,
-} from '@modular-forms/solid'
-import { createSignal, Show, type Component, type JSXElement } from 'solid-js'
+import { SubmitHandler, required } from '@modular-forms/solid'
+import { createSignal, Show } from 'solid-js'
 import { useNavigate } from '@solidjs/router'
 
-import { LoginForm, Form, Field, LoginFormKey } from './fields'
+import { LoginForm, Form, Field } from './fields'
 
 const [error, setError] = createSignal('')
 

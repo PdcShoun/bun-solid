@@ -30,7 +30,7 @@ const Home = () => {
         <br />
         <button onclick={() => login()}>Login</button>
         <button onclick={() => userLogout()}>Logout</button>
-        <h1>Home</h1>
+        <h1 class="text-xl">Home</h1>
         <p>
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam,
           quidem!

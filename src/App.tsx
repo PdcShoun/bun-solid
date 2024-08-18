@@ -46,10 +46,12 @@ export default App
 
 const Layout: Component<RouteSectionProps<unknown>> = (props) => {
   return (
-    <>
+    <div class="flex h-screen flex-col justify-between">
       <Header />
-      {props.children}
+      <div class="mx-auto mb-auto max-w-screen-2xl bg-slate-400">
+        {props.children}
+      </div>
       <Footer />
-    </>
+    </div>
   )
 }

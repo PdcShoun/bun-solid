@@ -3,6 +3,9 @@ export type UserData = {
   firstName: string
   lastName: string
   maidenName: string
+  email: string
+  username: string
+  password: string
 }
 
 export type UserList = {
@@ -20,7 +23,9 @@ export const getUserDetail = async (id: string) => {
 
 export const getUserList = async (page: number) => {
   const limit = 10
-  const skip = limit * page
+  const skip = limit * (page - 1)
+  console.log(skip, limit)
+  // await new Promise((resolve) => setTimeout(resolve, 3000))
   const response = await fetch(`/api/users?skip=${skip}&limit=${limit}`)
   const userData: UserList = await response.json()
   return userData

@@ -4,6 +4,9 @@ import { Route, Router } from '@solidjs/router'
 import type { RouteSectionProps } from '@solidjs/router'
 
 import { AppContext, makeAppContext } from './Context'
+
+import './App.css'
+
 import NotFound from '@/pages/NotFound'
 import Header from '@/layout/Header'
 import Footer from '@/layout/Footer'
@@ -46,10 +49,10 @@ export default App
 
 const Layout: Component<RouteSectionProps<unknown>> = (props) => {
   return (
-    <div class="flex h-screen flex-col justify-between">
+    <div class="flex h-screen flex-col">
       <Header />
-      <div class="mx-auto mb-auto max-w-screen-2xl bg-slate-400">
-        {props.children}
+      <div class="mb-auto flex justify-center bg-red-200">
+        <main class="container bg-slate-400 py-8">{props.children}</main>
       </div>
       <Footer />
     </div>

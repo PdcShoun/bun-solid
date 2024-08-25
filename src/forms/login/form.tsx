@@ -1,12 +1,13 @@
 import { SubmitHandler, required } from '@modular-forms/solid'
 import { createSignal, Show } from 'solid-js'
 import { useNavigate } from '@solidjs/router'
+import { Button } from '@/components/ui/button'
+import { Card } from '@/components/ui/card'
 
 import { LoginForm, Form, Field } from './fields'
 
-const [error, setError] = createSignal('')
-
 export const FormLogin = () => {
+  const [error, setError] = createSignal('')
   const navigate = useNavigate()
 
   const handleSubmit: SubmitHandler<LoginForm> = async (value, event) => {
@@ -16,11 +17,8 @@ export const FormLogin = () => {
 
   return (
     <>
-      <div class="w-full max-w-xs m-4">
-        <Form
-          onSubmit={handleSubmit}
-          class="mb-4 rounded bg-white px-8 pb-8 pt-6 shadow-md"
-        >
+      <Card class="mb-4 w-[380px] p-8">
+        <Form onSubmit={handleSubmit} class="">
           <Show when={error()}>{error()}</Show>
           <Field name="username" validate={[required('required')]}>
             {(fieldStore, elementProps) => {
@@ -62,14 +60,9 @@ export const FormLogin = () => {
               )
             }}
           </Field>
-          <button
-            class="focus:shadow-outline rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700 focus:outline-none"
-            type="submit"
-          >
-            Login
-          </button>
+          <Button type="submit">Login</Button>
         </Form>
-      </div>
+      </Card>
     </>
   )
 }

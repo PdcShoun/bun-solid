@@ -1,0 +1,12 @@
+name: test-runner
+
+on: push
+
+jobs:
+    test:
+        name: Run tests
+        runs-on: self-hosted
+        steps:
+            -   name: echo
+                run: echo "Test"
+
